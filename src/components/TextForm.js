@@ -63,7 +63,7 @@ export default function TextForm(props) {
             rows="6"
           ></textarea>
           <div />
-          <div disabled={text.length===0} className="mb-3 text-center d-flex flex-wrap gap-2 justify-content-center mt-3">
+          <div className="mb-3 text-center d-flex flex-wrap gap-2 justify-content-center mt-3">
             <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleUpClick}>
               Uppercase
             </button>

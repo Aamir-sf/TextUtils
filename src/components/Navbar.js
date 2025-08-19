@@ -41,7 +41,7 @@ export default function Navbar(props) {
           >
             <input
               className="form-check-input"
-              onClick={props.toggleMode}
+              onChange={props.toggleMode}
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
