@@ -34,6 +34,7 @@ export default function TextForm(props) {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard!", "success");
   };
 
@@ -62,23 +63,24 @@ export default function TextForm(props) {
             rows="6"
           ></textarea>
           <div />
-          <div className="mb-3 text-center d-flex flex-wrap gap-2 justify-content-center mt-3">
-            <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+          <div disabled={text.length===0} className="mb-3 text-center d-flex flex-wrap gap-2 justify-content-center mt-3">
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleUpClick}>
               Uppercase
             </button>
-            <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleLoClick}>
               Lowercase
             </button>
-            <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleClearClick}>
               Clear
             </button>
             <button
+            disabled={text.length===0}
               className="btn btn-primary mx-1"
               onClick={handleListenClick}
             >
               Listen
             </button>
-            <button className="btn btn-primary mx-1" onClick={handleCopy}>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleCopy}>
               Copy Text
             </button>
           </div>
@@ -96,7 +98,7 @@ export default function TextForm(props) {
           </p>
           <h2 className="heading text-center">Preview</h2>
           <p className="para text-center">
-            {text || "✍️Enter something in the textbox above to preview it here 🤓"}
+            {text || "Nothing to preview!🤓"}
           </p>
         </div>
       </div>
